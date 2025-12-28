@@ -21,7 +21,7 @@ Context: "{clarification_answers}"
 
 Task:
 Ask ONE question to determine the price positioning.
-Provide 4 distinct options + "Other".
+Provide 4 distinct options with INR (₹) ranges where applicable + "Other".
 
 Output format (JSON ONLY):
 {
@@ -74,8 +74,8 @@ Structure:
     { "name": "Category 3", "description": "Description" }
   ],
   "sampleProducts": [
-    { "name": "Product 1", "category": "Category 1", "priceRange": "$$", "description": "Description" },
-    { "name": "Product 2", "category": "Category 2", "priceRange": "$$$", "description": "Description" }
+    { "name": "Product 1", "category": "Category 1", "priceRange": "₹500-₹1500", "description": "Description" },
+    { "name": "Product 2", "category": "Category 2", "priceRange": "₹2500-₹5000", "description": "Description" }
   ],
   "homepageStructure": {
     "hero": "Hero section description",
@@ -90,4 +90,7 @@ Rules:
 - No emojis.
 - No mention of Shopify or competitors.
 - Pure JSON output.
+- STRICTLY USE INDIAN RUPEES (₹) for all prices.
+- Example: "₹599", "₹1200-₹2000".
+- DO NOT use "$" or "USD".
 `;
