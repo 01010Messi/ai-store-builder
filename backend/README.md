@@ -39,12 +39,17 @@ The robust Node.js backend powering the **AI Store Setup Engine**. It orchestrat
 }
 ```
 
-## Setup & Run
+## Security & Setup
 
-```bash
-npm install
-npm start
-``` 
+### Environment Variables
+**WARNING**: Never commit `.env` files.
+1. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Add your Gemini API Key in `.env`.
 
-Runs on `http://localhost:3000`.
-Verified with Google Gemini API.
+### Rate Limiting
+-   Max 3 Clarification Steps enforced.
+-   Caching enabled for redundant requests.
+
