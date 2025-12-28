@@ -4,11 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-// gemini-1.5-flash is the recommended free/fast model
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-export async function generateContent(prompt) {
+export async function generateContent(prompt, modelName = "gemini-2.5-flash") {
     try {
+        const model = genAI.getGenerativeModel({ model: modelName });
         const result = await model.generateContent(prompt);
         const response = await result.response;
         return response.text();
